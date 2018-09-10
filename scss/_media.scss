@@ -1,0 +1,47 @@
+@mixin media($consult) {
+  
+  // $media-xs: "480px";  // Cellphone
+  // $media-sm: "768px";  // Tablets
+  // $media-md: "992px";  // Desktops
+  // $media-lg: "1200px"; // Extra Large
+
+  $media-xs: "480px"; // Cellphone 
+  $media-md: "768px"; // Tablets
+  $media-lg: "992px"; // Desktops 
+  $media-xl: "1200px"; // Extra Large 
+  
+  // Mobile First
+  @if $consult == xs-min {
+    @media (min-width: #{$media-xs}) { @content; }
+  }
+  @else if $consult == sm-min {
+    @media (min-width: #{$media-sm}) { @content; }
+  }
+  @else if $consult == md-min {
+    @media (min-width: #{$media-md})  { @content; }
+  }
+  @else if $consult == lg-min {
+    @media (min-width: #{$media-lg})  { @content; }
+  }
+  @else if $consult == xl-min {
+    @media (min-width: #{$media-xl})  { @content; }
+  }
+
+  
+  // Desktop First
+  @if $consult == xs-max {
+    @media (max-width: #{$media-xs}-1) { @content; }
+  }
+  @else if $consult == sm-max {
+    @media (max-width: #{$media-sm}-1) { @content; }
+  }
+  @else if $consult == md-max {
+    @media (max-width: #{$media-md}-1)  { @content; }
+  }
+  @else if $consult == lg-max {
+    @media (max-width: #{$media-lg}-1)  { @content; }
+  }
+  @else if $consult == xl-max {
+    @media (min-width: #{$media-xl})  { @content; }
+  }
+}
